@@ -17,9 +17,10 @@ public class DeleteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("utf-8");
-		String no = request.getParameter("no");
-		String pwd = request.getParameter("pwd");
+	
+		String pwd =  WebUtils.checkParameter(request.getParameter("pwd"), "");
+
+		Long no =  WebUtils.checkParameter(request.getParameter("no"), 0L);
 
 		guestBookVo vo=new guestBookVo();
 		vo.setNo(Long.valueOf(no));
@@ -29,8 +30,8 @@ public class DeleteAction implements Action {
 		new guestBookDao().delete(vo);
 		
 		//리다이렉트 응답
-		
-		response.sendRedirect("/guestbook2/gb");  //밑의 html은 필요가 없어짐 
+		WebUtils.redirect(request.getContextPath()+"/gb", request, response);
+		//response.sendRedirect("/guestbook2/gb");  //밑의 html은 필요가 없어짐 
 	}
 
 }

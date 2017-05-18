@@ -9,6 +9,52 @@ import javax.servlet.http.HttpServletResponse;
 
 public class WebUtils {
 	
+	public static String checkParameter( String value, String defaultValue ) {
+
+		if( value == null ) {
+
+			return defaultValue;
+
+		}
+
+		
+
+		return value;
+
+	}
+
+	
+
+	public static Long checkParameter( String value, Long defaultValue ) {
+
+		if( value == null || value.matches("\\d+") == false ) {
+
+			return defaultValue;
+
+		}
+
+		
+
+		return Long.parseLong( value );
+
+	}
+
+
+
+	public static int checkParameter( String value, int defaultValue ) {
+
+		if( value == null || value.matches("\\d+") == false ) {
+
+			return defaultValue;
+
+		}
+
+		
+
+		return Integer.parseInt( value );
+
+	}
+	
 	public static void redirect(String url, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		

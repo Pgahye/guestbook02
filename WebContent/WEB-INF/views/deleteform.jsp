@@ -1,11 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
 
-	String no = request.getParameter("no");
-	int ino=Integer.parseInt(no);	
-
-%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,7 +8,7 @@
 </head>
 <body>
 	<form method="post" action="<%=request.getContextPath()%>/gb?a=delete">
-	<input type="hidden" name="no" value="<%=ino %>">
+	<input type="hidden" name="no" value="<%=request.getParameter("no") %>">
 	<table>
 		<tr>
 			<td>비밀번호</td>
